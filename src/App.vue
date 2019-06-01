@@ -1,28 +1,36 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <app-header :change="changeComp"></app-header>
+    <component :is="selectedComp"></component>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import Header from './components/Header.vue';
+  import Intro from './components/Intro.vue';
+  import Portfolio from './components/Portfolio.vue';
+  import Stocks from './components/Stocks.vue';
 
-export default {
-  name: 'app',
-  components: {
-    HelloWorld
+  export default {
+    data() {
+      return {
+        selectedComp: 'app-intro'
+      }
+    },
+    methods: {
+      changeComp(component) {
+        this.selectedComp = component;
+      }
+    },
+    components: {
+      'app-header': Header,
+      'app-intro': Intro,
+      'app-portfolio': Portfolio,
+      'app-stocks': Stocks
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
