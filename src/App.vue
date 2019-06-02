@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app">
     <app-header :change="changeComp"></app-header>
     <component :is="selectedComp"></component>
   </div>
@@ -30,7 +30,28 @@
     }
   }
 </script>
-
+  
 <style>
+  *,
+  *::after,
+  *::before {
+      margin: 0;
+      padding: 0;
+      box-sizing: inherit;
+  }
 
+  html {
+      font-size: 62.5%;
+  }
+
+  body {
+      box-sizing: border-box;
+      font-family: sans-serif;
+  }
+
+  .app {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 </style>
